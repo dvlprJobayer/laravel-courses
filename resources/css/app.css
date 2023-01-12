@@ -1,3 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.footer-link {
+    @apply border-b-2 border-transparent hover:border-[#ff5f53] transition duration-300 ease-linear text-gray-300;
+}
+
+.hero-min-h {
+    min-height: calc(100vh - 60px);
+}
+
+.btn-primary {
+    @apply py-3 px-6 font-medium bg-[#2c383f] text-white rounded-lg text-lg;
+}
+
+@layer components {
+    .container {
+        @apply max-w-[1218px] mx-auto;
+    }
+}

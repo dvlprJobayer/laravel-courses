@@ -18,14 +18,16 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            'book' => $this->faker->numberBetween(0, 1),
+            'type' => $this->faker->numberBetween(0, 1),
+            'resources' => $this->faker->numberBetween(1, 50),
             'year' => $this->faker->numberBetween(2010, 2021),
             'price' => $this->faker->randomFloat(2, 130, 380),
-            'image' => $this->faker->imageUrl(640, 480),
-            'content' => fake()->paragraph(3),
+            'image' => $this->faker->imageUrl(640, 300),
+            'content' => fake()->paragraph(5),
             'link' => $this->faker->url,
             'submitted_by' => $this->faker->numberBetween(1, 50),
             'duration' => rand(0,2),
+            'difficulty_level' => rand(0,2),
             'platform_id' => $this->faker->numberBetween(1, 5),
         ];
     }
