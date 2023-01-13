@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->unsignedBigInteger('type')->default(0)->comment('0: Free, 1: Paid');
             $table->unsignedBigInteger('resources')->default(1)->comment('resources count');
             $table->unsignedBigInteger('year');

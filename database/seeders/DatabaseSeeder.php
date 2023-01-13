@@ -52,8 +52,10 @@ class DatabaseSeeder extends Seeder
             ]
         ];
         foreach ($series as $item) {
+            $slug = strtolower(str_replace(' ', '-', $item['name']));
             \App\Models\Series::create([
                 'name' => $item['name'],
+                'slug' => $slug,
                 'image' => $item['image']
             ]);
         }
@@ -61,8 +63,10 @@ class DatabaseSeeder extends Seeder
         // Creating Topics
         $topics = ['Eloquent', 'Validation', 'Refactoring', 'Testing'];
         foreach ($topics as $topic) {
+            $slug = strtolower(str_replace(' ', '-', $topic));
             \App\Models\Topic::create([
-                'name' => $topic
+                'name' => $topic,
+                'slug' => $slug
             ]);
         }
 

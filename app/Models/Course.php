@@ -29,18 +29,6 @@ class Course extends Model
         return $this->belongsToMany(Series::class);
     }
 
-    public function duration($value) {
-        if($value == 0){
-            $time = rand(1, 5);
-            return $time . ' hours';
-        } elseif($value == 1) {
-            $time = rand(5, 10);
-            return $time . ' hours';
-        } else {
-            return '10+ hours';
-        }
-    }
-
     public function difficultyLevel($value) {
         if($value == 0){
             return 'Beginner';

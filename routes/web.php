@@ -17,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/course/{id}', [App\Http\Controllers\CourseController::class, 'show'])->name('courses.show');
+Route::get('/course/{slug}', [App\Http\Controllers\CourseController::class, 'show'])->name('course-show');
+
+// Pending Route
+Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index'])->name('course-index');
+Route::get('/series/{slug}', [App\Http\Controllers\SeriesController::class, 'index'])->name('series-index');
+Route::get('/topics/{slug}', [App\Http\Controllers\TopicController::class, 'index'])->name('topic-index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
