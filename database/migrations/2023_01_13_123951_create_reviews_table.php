@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('authors', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('avatar');
-            $table->text('description')->nullable();
-            $table->text('github_link')->nullable();
-            $table->text('twitter_link')->nullable();
-            $table->text('web_link')->nullable();
+            $table->text('body');
+            $table->integer('rating')->default(5);
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('review_by');
             $table->timestamps();
+
+            $table->foreign('review_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('authors');
+        Schema::dropIfExists('reviews');
     }
 };

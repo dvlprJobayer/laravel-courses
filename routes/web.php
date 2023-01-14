@@ -24,14 +24,11 @@ Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index'])-
 Route::get('/series/{slug}', [App\Http\Controllers\SeriesController::class, 'index'])->name('series-index');
 Route::get('/topics/{slug}', [App\Http\Controllers\TopicController::class, 'index'])->name('topic-index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';

@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Author;
 use App\Models\Course;
+use App\Models\Review;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,10 +18,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(49)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Admin',
+            'avatar' => fake()->imageUrl(300, 300, 'people'),
+            'email' => 'hi@jobayer.me',
+            'is_admin' => true,
+            'password' => bcrypt(123456)
+        ]);
+
+        \App\Models\User::factory(48)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Test User',
+            'avatar' => fake()->imageUrl(300, 300, 'people'),
             'email' => 'test@example.com',
             'password' => bcrypt(123456)
         ]);
@@ -79,12 +90,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // Creating Authors
-        $authors = ['Rasel Ahmed', 'Jeffery Way', 'John Doe', 'Will Smith'];
-        foreach ($authors as $author) {
-            \App\Models\Author::create([
-                'name' => $author
-            ]);
-        }
+        Author::factory(10)->create();
 
         // Creating Course
         Course::factory(100)->create();
@@ -105,5 +111,8 @@ class DatabaseSeeder extends Seeder
                 \App\Models\Series::all()->random(rand(1, 4))
             );
         }
+
+        // Creating Reviews
+        Review::factory(100)->create();
     }
 }

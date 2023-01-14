@@ -29,6 +29,10 @@ class Course extends Model
         return $this->belongsToMany(Series::class);
     }
 
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
+
     public function difficultyLevel($value) {
         if($value == 0){
             return 'Beginner';

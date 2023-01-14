@@ -4,9 +4,13 @@
 
         <div class="grid grid-cols-3 gap-12 mb-10">
             <!-- Single Course Card -->
-            @foreach ($topic->courses as $course)
+            @foreach ($courses as $course)
             @include('components.course-box', ['course' => $course])
             @endforeach
+        </div>
+
+        <div class="mb-10">
+            {{ $courses->links() }}
         </div>
     </div>
 </x-guest-layout>

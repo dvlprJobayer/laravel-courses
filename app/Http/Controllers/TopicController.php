@@ -9,8 +9,8 @@ class TopicController extends Controller
 {
     public function index($slug)
     {
-        $topic = Topic::where('slug', $slug)->with('courses')->firstOrFail();
-        // return $topic;
-        return view('topic.single', compact('topic'));
+        $topic = Topic::where('slug', $slug)->firstOrFail();
+        $courses = $topic->courses()->paginate(9);
+        return view('topic.single', compact('topic', 'courses'));
     }
 }

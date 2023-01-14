@@ -27,7 +27,7 @@ class CourseFactory extends Factory
             'content' => fake()->paragraph(15),
             'link' => $this->faker->url,
             'submitted_by' => $this->faker->numberBetween(1, 50),
-            'duration' => rand(1,25),
+            'duration' => rand(1,15),
             'difficulty_level' => rand(0,2),
             'platform_id' => $this->faker->numberBetween(1, 5),
         ];

@@ -33,9 +33,23 @@
             </div>
 
             <!-- Login Signup Area -->
-            <div class="space-x-8">
-                <a href="#" class="text-base text-gray-500 font-medium">Sign in</a>
-                <a class="text-white bg-black py-2 px-4 rounded font-medium" href="#">Sign up</a>
+            <div class="space-x-4">
+                @auth
+                <span class="text-base text-gray-500 font-medium">Welcome: {{ auth()->user()->name }}</span>
+                @if (auth()->user()->is_admin)
+                <a href="{{ route('dashboard') }}"
+                    class="text-white bg-black py-2 px-4 rounded font-medium hover:bg-red-500">Dashboard</a>
+                @endif
+                <form class="inline-block" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="font-medium text-[#ff5f53]" type="submit">Logout</button>
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="text-base text-gray-500 font-medium hover:text-gray-700">Sign
+                    in</a>
+                <a href="{{ route('register') }}"
+                    class="text-white bg-black py-2 px-4 rounded font-medium hover:bg-red-500">Sign up</a>
+                @endauth
             </div>
         </div>
     </header>

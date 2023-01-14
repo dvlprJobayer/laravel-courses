@@ -15,4 +15,12 @@ class HomeController extends Controller
             'courses' => $featuredCourses
         ]);
     }
+
+    public function dashboard()
+    {
+        if(!auth()->user()->is_admin) {
+            return redirect()->route('home');
+        }
+        return view('dashboard');
+    }
 }

@@ -114,38 +114,18 @@
                                 </button>
 
                                 <div class="flex items-center space-x-px">
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                    @for($i = 1; $i <= 5; $i++) <svg
+                                        class="w-4 h-4 {{ $i <= $average_ratings ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
                                             d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
                                             clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
+                                        </svg>
+                                        @endfor
                                 </div>
-                                <p class="text-sm text-gray-500">1 Review</p>
+                                <p class="text-sm text-gray-500">{{ count($course->reviews) }} Review{{
+                                    count($course->reviews) > 1 ? 's' : '' }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -163,39 +143,19 @@
 
                     <div class="my-6">
                         <h4 class="text-xl font-bold text-gray-900">Reviews</h4>
+                        @if (count($course->reviews) > 0)
+                        @foreach ($course->reviews as $review)
                         <div class="bg-white p-6 mt-4">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-px">
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                    @for ($i = 1; $i <= 5; $i++) <svg
+                                        class="w-4 h-4 {{ $i <= $review->rating ? 'text-yellow-400' : 'text-gray-300' }}"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
                                             d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
                                             clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
+                                        </svg>
+                                        @endfor
                                 </div>
 
                                 <p class="text-sm font-normal text-gray-400">
@@ -204,73 +164,26 @@
                             </div>
                             <blockquote class="my-4">
                                 <p class="text-base font-normal leading-7 text-gray-600">
-                                    The best course for Laravel Developers!
+                                    {{ $review->body }}
                                 </p>
                             </blockquote>
 
                             <div class="flex items-center">
                                 <img class="flex-shrink-0 w-6 h-6 bg-gray-300 rounded-full"
-                                    src="https://www.gravatar.com/avatar/f7bd4d2a91e6298ca47bff3a96121906.jpg?s=80&amp;d=blank&amp;r=g"
-                                    alt="Alex Table Profile Photo" />
+                                    src="{{ $review->user->avatar }}" alt="Alex Table Profile Photo" />
                                 <span class="ml-2.5 text-sm font-medium text-gray-900">
-                                    Alex Table
+                                    {{ $review->user->name }}
                                 </span>
                             </div>
                         </div>
+                        @endforeach
+                        @else
                         <div class="bg-white p-6 mt-4">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-px">
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-
-                                <p class="text-sm font-normal text-gray-400">
-                                    Dec 14, 2022
-                                </p>
-                            </div>
-                            <blockquote class="my-4">
-                                <p class="text-base font-normal leading-7 text-gray-600">
-                                    Great learning for large projects.
-                                </p>
-                            </blockquote>
-
-                            <div class="flex items-center">
-                                <img class="flex-shrink-0 w-6 h-6 bg-gray-300 rounded-full"
-                                    src="https://www.gravatar.com/avatar/f7bd4d2a91e6298ca47bff3a96121906.jpg?s=80&amp;d=blank&amp;r=g"
-                                    alt="Lloric Mayuga Garcia Profile Photo" />
-                                <span class="ml-2.5 text-sm font-medium text-gray-900">
-                                    Lloric Mayuga Garcia
-                                </span>
-                            </div>
+                            <p class="text-base font-normal leading-7 text-gray-600">
+                                No reviews yet.
+                            </p>
                         </div>
+                        @endif
                     </div>
                 </section>
                 <aside class="w-2/6">
@@ -305,16 +218,18 @@
                         </h3>
                         <hr />
 
+                        @foreach ($course->authors as $author)
                         <div class="space-y-4 pb-2">
-                            <img class="object-cover w-48 m-auto shadow" src="../assets/img/roose-profile.png"
-                                alt="Brent Roose Profile Picture" />
+                            <img class="object-cover w-48 m-auto shadow" src="{{ $author->avatar }}"
+                                alt="{{ $author->name }}" />
                             <div class="text-lg font-medium leading-6 text-center">
-                                <h4 class="font-semibold">Brent Roose</h4>
+                                <h4 class="font-semibold">{{ $author->name }}</h4>
                             </div>
 
                             <ul role="list" class="flex space-x-5 justify-center">
+                                @if(!empty($author->twitter_link))
                                 <li>
-                                    <a href="https://twitter.com/brendt_gd" class="text-gray-400 hover:text-gray-500"
+                                    <a href="{{ $author->twitter_link }}" class="text-gray-400 hover:text-gray-500"
                                         target="_blank">
                                         <span class="sr-only">Twitter</span>
                                         <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -324,9 +239,11 @@
                                         </svg>
                                     </a>
                                 </li>
+                                @endif
 
+                                @if(!empty($author->github_link))
                                 <li>
-                                    <a href="https://github.com/brendt" class="text-gray-400 hover:text-gray-500"
+                                    <a href="{{ $author->github_link }}" class="text-gray-400 hover:text-gray-500"
                                         target="_blank">
                                         <span class="sr-only">GitHub</span>
                                         <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -336,9 +253,11 @@
                                         </svg>
                                     </a>
                                 </li>
+                                @endif
 
+                                @if(!empty($author->web_link))
                                 <li>
-                                    <a href="https://stitcher.io/" class="text-gray-400 hover:text-gray-500"
+                                    <a href="{{ $author->web_link }}" class="text-gray-400 hover:text-gray-500"
                                         target="_blank">
                                         <span class="sr-only">Website</span>
                                         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -349,84 +268,19 @@
                                         </svg>
                                     </a>
                                 </li>
+                                @endif
                             </ul>
 
                             <div class="text-sm px-7">
                                 <p class="text-gray-500">
-                                    I am currently working as Dev Advocate for
-                                    PhpStorm. I have been working almost
-                                    exclusively on large web applications for
-                                    the past few years. Besides my work, I am
-                                    also very active in the PHP community.
+                                    {{ $author->description }}
                                 </p>
                             </div>
                         </div>
-
-                        <div class="space-y-4 pb-2">
-                            <img class="object-cover w-48 m-auto shadow" src="../assets/img/freek-profile.png"
-                                alt="Freek Van der Herten Profile Picture" />
-                            <div class="text-lg font-medium leading-6 text-center">
-                                <h4 class="font-semibold">
-                                    Freek Van der Herten
-                                </h4>
-                            </div>
-
-                            <ul role="list" class="flex space-x-5 justify-center">
-                                <li>
-                                    <a href="https://twitter.com/freekmurze" class="text-gray-400 hover:text-gray-500"
-                                        target="_blank">
-                                        <span class="sr-only">Twitter</span>
-                                        <svg class="h-6 w-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="https://github.com/freekmurze" class="text-gray-400 hover:text-gray-500"
-                                        target="_blank">
-                                        <span class="sr-only">GitHub</span>
-                                        <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="https://freek.dev/" class="text-gray-400 hover:text-gray-500"
-                                        target="_blank">
-                                        <span class="sr-only">Website</span>
-                                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="text-sm px-7">
-                                <p class="text-gray-500">
-                                    I'm a PHP developer and Laravel enthusiast.
-                                    Most of my time is spent at Spatie of which
-                                    I'm the co-owner. Whenever my colleagues and
-                                    I stumble upon a problem that we can solve
-                                    in a clean way, we extract our solution so
-                                    other developers can use it. Together with
-                                    my colleagues I regularly release packages
-                                    that have been downloaded more than 500
-                                    million times.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
 
-                    <div class="bg-white p-6 mt-6">
+                    <div class="bg-white p-6 my-6">
                         <h3 class="text-sm font-bold tracking-widest text-gray-900 uppercase">
                             Topics
                         </h3>
