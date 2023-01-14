@@ -48,7 +48,9 @@
                 <a href="{{ route('login') }}" class="text-base text-gray-500 font-medium hover:text-gray-700">Sign
                     in</a>
                 <a href="{{ route('register') }}"
-                    class="text-white bg-black py-2 px-4 rounded font-medium hover:bg-red-500">Sign up</a>
+                    class="text-white bg-black py-2 px-4 rounded font-medium hover:bg-red-500">
+                    Sign up
+                </a>
                 @endauth
             </div>
         </div>
@@ -64,16 +66,16 @@
                     <h3 class="text-xl mb-4 text-white">Course by Series</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a class="footer-link" href="#">Laravel</a>
+                            <a class="footer-link" href="{{ route('archive', ['series', 'laravel']) }}">Laravel</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">PHP</a>
+                            <a class="footer-link" href="{{ route('archive', ['series', 'php']) }}">PHP</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Livewire</a>
+                            <a class="footer-link" href="{{ route('archive', ['series', 'livewire']) }}">Livewire</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Vue.js</a>
+                            <a class="footer-link" href="{{ route('archive', ['series', 'vuejs']) }}">Vue.js</a>
                         </li>
                     </ul>
                 </div>
@@ -83,13 +85,13 @@
                     <h3 class="text-xl mb-4 text-white">Course by Duration</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a class="footer-link" href="#">1-5 hours</a>
+                            <a class="footer-link" href="{{ route('archive', ['duration', '1h-5h']) }}">1-5 hours</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">5-10 hours</a>
+                            <a class="footer-link" href="{{ route('archive', ['duration', '5h-10h']) }}">5-10 hours</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">10+ hours</a>
+                            <a class="footer-link" href="{{ route('archive', ['duration', '10h+']) }}">10+ hours</a>
                         </li>
                     </ul>
                 </div>
@@ -99,13 +101,14 @@
                     <h3 class="text-xl mb-4 text-white">Course by Level</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a class="footer-link" href="#">Beginner</a>
+                            <a class="footer-link" href="{{ route('archive', ['level', 'beginner']) }}">Beginner</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Intermediate</a>
+                            <a class="footer-link"
+                                href="{{ route('archive', ['level', 'intermediate']) }}">Intermediate</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Advanced</a>
+                            <a class="footer-link" href="{{ route('archive', ['level', 'advanced']) }}">Advanced</a>
                         </li>
                     </ul>
                 </div>
@@ -115,16 +118,19 @@
                     <h3 class="text-xl mb-4 text-white">Course by Platform</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a class="footer-link" href="#">Laracasts</a>
+                            <a class="footer-link"
+                                href="{{ route('archive', ['platform', 'laracasts']) }}">Laracasts</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Laravel Daily</a>
+                            <a class="footer-link" href="{{ route('archive', ['platform', 'laravel-daily']) }}">Laravel
+                                Daily</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Codecourse</a>
+                            <a class="footer-link"
+                                href="{{ route('archive', ['platform', 'codecourse']) }}">Codecourse</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Spatie</a>
+                            <a class="footer-link" href="{{ route('archive', ['platform', 'udemy']) }}">Udemy</a>
                         </li>
                     </ul>
                 </div>
@@ -134,16 +140,17 @@
                     <h3 class="text-xl mb-4 text-white">Course by Topics</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a class="footer-link" href="#">Eloquent</a>
+                            <a class="footer-link" href="{{ route('archive', ['topic', 'eloquent']) }}">Eloquent</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Validation</a>
+                            <a class="footer-link" href="{{ route('archive', ['topic', 'validation']) }}">Validation</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Refactoring</a>
+                            <a class="footer-link"
+                                href="{{ route('archive', ['topic', 'refactoring']) }}">Refactoring</a>
                         </li>
                         <li>
-                            <a class="footer-link" href="#">Testing</a>
+                            <a class="footer-link" href="{{ route('archive', ['topic', 'testing']) }}">Testing</a>
                         </li>
                     </ul>
                 </div>

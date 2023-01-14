@@ -29,7 +29,7 @@ class CourseFactory extends Factory
             'submitted_by' => $this->faker->numberBetween(1, 50),
             'duration' => rand(1,15),
             'difficulty_level' => rand(0,2),
-            'platform_id' => $this->faker->numberBetween(1, 5),
+            'platform_id' => $this->faker->numberBetween(1, 4),
         ];
     }
 }

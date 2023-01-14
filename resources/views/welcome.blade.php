@@ -35,7 +35,7 @@
     <ul class="container pb-28 flex gap-x-8 justify-center">
         @foreach ($series as $item)
         <li class="border border-[#ff5f53] h-16 w-full rounded-lg flex items-center justify-center shadow">
-            <a href="{{ route('series-index', $item->slug) }}">
+            <a href="{{ route('archive', ['series', $item->slug]) }}">
                 <img src="{{ $item->image }}" alt="{{ $item->name }}" />
             </a>
         </li>

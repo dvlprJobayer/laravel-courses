@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'image' => 'https://laravel-courses.com/storage/series/7d2e33b5-fcd0-4227-bce6-aa49b976bd7c.png'
             ],
             [
-                'name' => 'Alpine JS',
+                'name' => 'AlpineJS',
                 'image' => 'https://laravel-courses.com/storage/series/fe7d56b4-906c-4970-8c69-25956acb3988.png'
             ],
             [
@@ -82,10 +82,12 @@ class DatabaseSeeder extends Seeder
         }
 
         // Creating platforms
-        $platforms = ['Codecourse', 'YouTube', 'Udemy', 'Laravel Daily', 'Laracasts'];
+        $platforms = ['Codecourse', 'Udemy', 'Laravel Daily', 'Laracasts'];
         foreach ($platforms as $platform) {
+            $slug = strtolower(str_replace(' ', '-', $platform));
             \App\Models\Platform::create([
-                'name' => $platform
+                'name' => $platform,
+                'slug' => $slug
             ]);
         }
 

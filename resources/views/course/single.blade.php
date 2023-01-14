@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <a class="font-medium text-gray-400 hover:text-gray-700"
-                            href="{{ route('series-index', $course->series[0]->slug) }}">
+                            href="{{ route('archive', ['series', $course->series[0]->slug]) }}">
                             {{ $course->series[0]->name }}
                         </a>
                     </li>
@@ -64,7 +64,7 @@
                                             d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                     <span>
-                                        {{ $course->duration < 10 ? $course->duration . ' hours' : '10+ hours' }}
+                                        {{ $course->duration }} hours
                                     </span>
                                 </li>
 
@@ -288,7 +288,7 @@
                         <hr class="mt-5 border-gray-200" />
                         <div class="mt-8 flex flex-wrap gap-2.5">
                             @foreach ($course->topics as $topic)
-                            <a href="{{ route('topic-index', $topic->slug) }}"
+                            <a href="{{ route('archive', ['topic', $topic->slug]) }}"
                                 class="relative flex items-center justify-center rounded-full border border-gray-300 py-1.5 px-3 hover:bg-gray-100">
                                 <div class="absolute top-[13px] left-3 h-1.5 w-1.5 rounded-full bg-rose-500"></div>
                                 <div class="ml-4 text-sm font-medium text-gray-900">
