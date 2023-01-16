@@ -10,7 +10,6 @@ class CourseController extends Controller
 
     public function index()
     {
-        // dd(request()->durations);
         $courses = Course::where(function ($query) {
             if(!empty(request()->search)) {
                 $query->where('name', 'like', '%' . request()->search . '%');
