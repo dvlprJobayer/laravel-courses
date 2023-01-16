@@ -23,7 +23,7 @@
                     <img class="w-56" src="{{ asset('img/logo.png') }}" alt="logo" />
                 </a>
                 <nav class="space-x-8 text-base font-medium text-gray-500">
-                    <a class="border-b-2 py-[18px] border-transparent hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-purple-400"
+                    <a class="border-b-2 py-[18px] border-transparent hover:text-gray-700 hover:border-gray-300 {{ Request::is('courses') ? 'text-gray-700 border-purple-400' : '' }}"
                         href="/courses">Courses
                     </a>
                     <a class="border-b-2 py-[18px] border-transparent hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-purple-400"

@@ -7,6 +7,23 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
+
+    public function index()
+    {
+        // dd(request()->durations);
+        $courses = Course::where(function ($query) {
+            if(!empty(request()->search)) {
+                $query->where('name', 'like', '%' . request()->search . '%');
+            }
+        })->when(request()->levels, function ($query) {
+            $query->whereIn('difficulty_level', request()->levels);
+        })->when(request()->types, function ($query) {
+            $query->whereIn('type', request()->types);
+        })->when(request()->platforms, function ($query) {
+            $query->whereIn('platform_id', request()->platforms);
+        })->paginate(10);
+        return view('course.index', compact('courses'));
+    }
     public function show($slug)
     {
         $course = Course::where('slug', $slug)->with(['platform', 'authors', 'topics', 'series', 'reviews'])->firstOrFail();
